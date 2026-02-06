@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360">
+  <rect width="100%" height="100%" fill="#f7f7fb"/>
+  <g fill="#4b2b6b">
+    <rect x="30" y="100" width="580" height="160" rx="18" />
+    <rect x="200" y="50" width="220" height="120" rx="12" />
+    <circle cx="260" cy="340" r="90" fill="#27143a" />
+    <circle cx="460" cy="340" r="110" fill="#27143a" />
+  </g>
+  <text x="40" y="48" font-family="Arial" font-size="28" fill="#27143a">Row-Crop 150HP</text>
+</svg>

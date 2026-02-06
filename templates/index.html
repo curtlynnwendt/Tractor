@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tractor Advisor</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width: 820px; margin: 28px auto; padding: 0 16px; }
+      label { display:block; margin-top:10px }
+      .inline { display:inline-block; margin-right:12px }
+      .btn { margin-top:16px; padding:8px 14px }
+    </style>
+  </head>
+  <body>
+    <h1>Tractor Advisor</h1>
+    <form action="/recommend" method="post">
+      <label>Acreage
+        <input type="number" name="acres" value="100" step="1" min="0">
+      </label>
+
+      <label>Terrain</label>
+      <label class="inline"><input type="radio" name="terrain" value="flat" checked> Flat</label>
+      <label class="inline"><input type="radio" name="terrain" value="hilly"> Hilly</label>
+      <label class="inline"><input type="radio" name="terrain" value="wet"> Wet</label>
+      <label class="inline"><input type="radio" name="terrain" value="mixed"> Mixed</label>
+
+      <label>Primary tasks</label>
+      <label><input type="checkbox" name="tasks" value="plowing"> Plowing</label>
+      <label><input type="checkbox" name="tasks" value="harvesting"> Harvesting</label>
+      <label><input type="checkbox" name="tasks" value="loader"> Loader / material handling</label>
+      <label><input type="checkbox" name="tasks" value="mowing"> Mowing</label>
+      <label><input type="checkbox" name="tasks" value="planting"> Planting</label>
+
+      <label>Budget</label>
+      <select name="budget">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+
+      <div>
+        <button class="btn" type="submit">Get Recommendation</button>
+      </div>
+    </form>
+  </body>
+  </html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Recommendation</title>
+    <style>
+      body{font-family:Arial, sans-serif; max-width:820px; margin:28px auto; padding:0 16px}
+      .model { border:1px solid #ddd; padding:8px; margin:6px 0 }
+    </style>
+  </head>
+  <body>
+    <h1>Recommendation</h1>
+    <p><strong>Class:</strong> {{ rec.class }}</p>
+    <p><strong>Horsepower range:</strong> {{ rec.hp_range[0] }}–{{ rec.hp_range[1] }} HP</p>
+    <p><strong>Drive:</strong> {{ rec.drive }}</p>
+    <p><strong>Notes:</strong> {{ rec.notes }}</p>
+
+    <h2>Suggested models</h2>
+    {% if rec.suggested_models %}
+      {% for m in rec.suggested_models %}
+        <div class="model">
+          <div style="display:flex; gap:12px; align-items:flex-start">
+            <div style="flex:0 0 300px">
+              <img src="{{ url_for('static', filename='images/' ~ m.image) }}" alt="{{ m.name }}" style="max-width:100%">
+            </div>
+            <div style="flex:1">
+              <h3 style="margin:0">{{ m.name }}</h3>
+              <p style="margin:4px 0"><strong>Brand:</strong> {{ m.brand }} — <strong>Engine:</strong> {{ m.hp }} HP</p>
+              <p style="margin:4px 0"><strong>PTO:</strong> {{ m.pto }} HP — <strong>Weight:</strong> {{ m.weight_lbs }} lbs</p>
+              <p style="margin:4px 0"><strong>Estimated price:</strong> ${{ '{:,}'.format(m.price_usd) }}</p>
+              <p style="margin:8px 0">{{ m.description }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <p>No specific models available for this configuration.</p>
+    {% endif %}
+
+    <p><a href="/">Try another</a></p>
+  </body>
+  </html>
